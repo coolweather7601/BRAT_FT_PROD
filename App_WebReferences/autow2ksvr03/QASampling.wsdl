@@ -1,0 +1,1215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://nxp.com/QASampling/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://nxp.com/QASampling/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">QASamplingWebServices are built for external APs or GUIs to query/insert/update/delete data entries of QASampling DB. Ver. 0.5.2.13020701</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://nxp.com/QASampling/">
+      <s:element name="getQAFlag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BatchNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Site" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="Stage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TesterID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OPID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getQAFlagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getQAFlagResult" type="tns:QAFlag" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QAFlag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QAID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QAMethod" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAMethodDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QAFlag" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="QASize" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getQAResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QAID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BatchNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Stage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TesterID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HostName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getQAResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getQAResultResult" type="tns:getQAResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="getQAResults">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QAData" type="tns:QARecord" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="SystemError" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QARecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BatchNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NCCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Diffusion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TesterName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HostName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TesterRaspe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tester" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OPID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LotQty" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QACode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QASize" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="QADateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QADoneDateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAResultDateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAResult" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SystemError" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CounterTable" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CounterUpdateMode" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CounterUpdateTime" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="QADone" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="queryQAMethods">
+        <s:complexType />
+      </s:element>
+      <s:element name="queryQAMethodsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryQAMethodsResult" type="tns:QAMethodProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QAMethodProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QAMethodList" type="tns:ArrayOfQAMethod" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfQAMethod">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="QAMethod" nillable="true" type="tns:QAMethod" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QAMethod">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MethodID" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="MethodDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="queryQAResults">
+        <s:complexType />
+      </s:element>
+      <s:element name="queryQAResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryQAResultsResult" type="tns:QAResultProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QAResultProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QAResultList" type="tns:ArrayOfQAResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfQAResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="QAResult" nillable="true" type="tns:QAResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QAResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultID" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="queryTesterRaspeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="queryTesterRaspeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryTesterRaspeListResult" type="tns:TesterRaspeProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TesterRaspeProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TesterRaspeList" type="tns:ArrayOfTesterRaspe" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTesterRaspe">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TesterRaspe" nillable="true" type="tns:TesterRaspe" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TesterRaspe">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RaspeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TesterName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TesterRaspe" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="queryTesterList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TesterRaspe" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryTesterListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryTesterListResult" type="tns:TesterProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TesterProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TesterList" type="tns:ArrayOfTester" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTester">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tester" nillable="true" type="tns:Tester" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tester">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Tester" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="queryQARecords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QAID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BatchNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TypeName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NCCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Diffusion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Stage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TesterRaspe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Tester" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DateCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OPID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QAMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QAFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QAResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QADone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryQARecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryQARecordsResult" type="tns:QARecordProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QARecordProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QADataList" type="tns:ArrayOfQARecord" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfQARecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="QARecord" nillable="true" type="tns:QARecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="queryQARecordsDS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QAID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BatchNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TypeName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NCCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Diffusion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Stage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TesterRaspe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Tester" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DateCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OPID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QAMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QAFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QAResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QADone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryQARecordsDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryQARecordsDSResult" type="tns:QARecordDSProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QARecordDSProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QADataList">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="storeQAResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QAID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="QAResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="storeQAResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeQAResultResult" type="tns:updateQAResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="updateQAResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QAData" type="tns:QARecord" />
+          <s:element minOccurs="1" maxOccurs="1" name="QAResult" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="updateQADone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QAID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateQADoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateQADoneResult" type="tns:ReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReturnValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataValue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dataExisted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QAFlag" nillable="true" type="tns:QAFlag" />
+      <s:element name="getQAResults" nillable="true" type="tns:getQAResults" />
+      <s:element name="QAMethodProxy" nillable="true" type="tns:QAMethodProxy" />
+      <s:element name="QAResultProxy" nillable="true" type="tns:QAResultProxy" />
+      <s:element name="TesterRaspeProxy" nillable="true" type="tns:TesterRaspeProxy" />
+      <s:element name="TesterProxy" nillable="true" type="tns:TesterProxy" />
+      <s:element name="QARecordProxy" nillable="true" type="tns:QARecordProxy" />
+      <s:element name="QARecordDSProxy" nillable="true" type="tns:QARecordDSProxy" />
+      <s:element name="updateQAResult" nillable="true" type="tns:updateQAResult" />
+      <s:element name="ReturnValue" nillable="true" type="tns:ReturnValue" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getQAFlagSoapIn">
+    <wsdl:part name="parameters" element="tns:getQAFlag" />
+  </wsdl:message>
+  <wsdl:message name="getQAFlagSoapOut">
+    <wsdl:part name="parameters" element="tns:getQAFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="getQAResultSoapIn">
+    <wsdl:part name="parameters" element="tns:getQAResult" />
+  </wsdl:message>
+  <wsdl:message name="getQAResultSoapOut">
+    <wsdl:part name="parameters" element="tns:getQAResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryQAMethodsSoapIn">
+    <wsdl:part name="parameters" element="tns:queryQAMethods" />
+  </wsdl:message>
+  <wsdl:message name="queryQAMethodsSoapOut">
+    <wsdl:part name="parameters" element="tns:queryQAMethodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryQAResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:queryQAResults" />
+  </wsdl:message>
+  <wsdl:message name="queryQAResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:queryQAResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryTesterRaspeListSoapIn">
+    <wsdl:part name="parameters" element="tns:queryTesterRaspeList" />
+  </wsdl:message>
+  <wsdl:message name="queryTesterRaspeListSoapOut">
+    <wsdl:part name="parameters" element="tns:queryTesterRaspeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryTesterListSoapIn">
+    <wsdl:part name="parameters" element="tns:queryTesterList" />
+  </wsdl:message>
+  <wsdl:message name="queryTesterListSoapOut">
+    <wsdl:part name="parameters" element="tns:queryTesterListResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:queryQARecords" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:queryQARecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsDSSoapIn">
+    <wsdl:part name="parameters" element="tns:queryQARecordsDS" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsDSSoapOut">
+    <wsdl:part name="parameters" element="tns:queryQARecordsDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="storeQAResultSoapIn">
+    <wsdl:part name="parameters" element="tns:storeQAResult" />
+  </wsdl:message>
+  <wsdl:message name="storeQAResultSoapOut">
+    <wsdl:part name="parameters" element="tns:storeQAResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateQADoneSoapIn">
+    <wsdl:part name="parameters" element="tns:updateQADone" />
+  </wsdl:message>
+  <wsdl:message name="updateQADoneSoapOut">
+    <wsdl:part name="parameters" element="tns:updateQADoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="getQAFlagHttpGetIn">
+    <wsdl:part name="BatchNo" type="s:string" />
+    <wsdl:part name="Site" type="s:string" />
+    <wsdl:part name="Stage" type="s:string" />
+    <wsdl:part name="TesterID" type="s:string" />
+    <wsdl:part name="OPID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getQAFlagHttpGetOut">
+    <wsdl:part name="Body" element="tns:QAFlag" />
+  </wsdl:message>
+  <wsdl:message name="getQAResultHttpGetIn">
+    <wsdl:part name="QAID" type="s:string" />
+    <wsdl:part name="BatchNo" type="s:string" />
+    <wsdl:part name="Stage" type="s:string" />
+    <wsdl:part name="TesterID" type="s:string" />
+    <wsdl:part name="HostName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getQAResultHttpGetOut">
+    <wsdl:part name="Body" element="tns:getQAResults" />
+  </wsdl:message>
+  <wsdl:message name="queryQAMethodsHttpGetIn" />
+  <wsdl:message name="queryQAMethodsHttpGetOut">
+    <wsdl:part name="Body" element="tns:QAMethodProxy" />
+  </wsdl:message>
+  <wsdl:message name="queryQAResultsHttpGetIn" />
+  <wsdl:message name="queryQAResultsHttpGetOut">
+    <wsdl:part name="Body" element="tns:QAResultProxy" />
+  </wsdl:message>
+  <wsdl:message name="queryTesterRaspeListHttpGetIn" />
+  <wsdl:message name="queryTesterRaspeListHttpGetOut">
+    <wsdl:part name="Body" element="tns:TesterRaspeProxy" />
+  </wsdl:message>
+  <wsdl:message name="queryTesterListHttpGetIn">
+    <wsdl:part name="TesterRaspe" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="queryTesterListHttpGetOut">
+    <wsdl:part name="Body" element="tns:TesterProxy" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsHttpGetIn">
+    <wsdl:part name="QAID" type="s:string" />
+    <wsdl:part name="BatchNo" type="s:string" />
+    <wsdl:part name="TypeName" type="s:string" />
+    <wsdl:part name="NCCode" type="s:string" />
+    <wsdl:part name="Diffusion" type="s:string" />
+    <wsdl:part name="Site" type="s:string" />
+    <wsdl:part name="Stage" type="s:string" />
+    <wsdl:part name="TesterRaspe" type="s:string" />
+    <wsdl:part name="Tester" type="s:string" />
+    <wsdl:part name="BL" type="s:string" />
+    <wsdl:part name="DateCode" type="s:string" />
+    <wsdl:part name="OPID" type="s:string" />
+    <wsdl:part name="QAMethod" type="s:string" />
+    <wsdl:part name="QAFlag" type="s:string" />
+    <wsdl:part name="QAResult" type="s:string" />
+    <wsdl:part name="QADone" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsHttpGetOut">
+    <wsdl:part name="Body" element="tns:QARecordProxy" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsDSHttpGetIn">
+    <wsdl:part name="QAID" type="s:string" />
+    <wsdl:part name="BatchNo" type="s:string" />
+    <wsdl:part name="TypeName" type="s:string" />
+    <wsdl:part name="NCCode" type="s:string" />
+    <wsdl:part name="Diffusion" type="s:string" />
+    <wsdl:part name="Site" type="s:string" />
+    <wsdl:part name="Stage" type="s:string" />
+    <wsdl:part name="TesterRaspe" type="s:string" />
+    <wsdl:part name="Tester" type="s:string" />
+    <wsdl:part name="BL" type="s:string" />
+    <wsdl:part name="DateCode" type="s:string" />
+    <wsdl:part name="OPID" type="s:string" />
+    <wsdl:part name="QAMethod" type="s:string" />
+    <wsdl:part name="QAFlag" type="s:string" />
+    <wsdl:part name="QAResult" type="s:string" />
+    <wsdl:part name="QADone" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsDSHttpGetOut">
+    <wsdl:part name="Body" element="tns:QARecordDSProxy" />
+  </wsdl:message>
+  <wsdl:message name="storeQAResultHttpGetIn">
+    <wsdl:part name="QAID" type="s:string" />
+    <wsdl:part name="QAResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="storeQAResultHttpGetOut">
+    <wsdl:part name="Body" element="tns:updateQAResult" />
+  </wsdl:message>
+  <wsdl:message name="updateQADoneHttpGetIn">
+    <wsdl:part name="QAID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="updateQADoneHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReturnValue" />
+  </wsdl:message>
+  <wsdl:message name="getQAFlagHttpPostIn">
+    <wsdl:part name="BatchNo" type="s:string" />
+    <wsdl:part name="Site" type="s:string" />
+    <wsdl:part name="Stage" type="s:string" />
+    <wsdl:part name="TesterID" type="s:string" />
+    <wsdl:part name="OPID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getQAFlagHttpPostOut">
+    <wsdl:part name="Body" element="tns:QAFlag" />
+  </wsdl:message>
+  <wsdl:message name="getQAResultHttpPostIn">
+    <wsdl:part name="QAID" type="s:string" />
+    <wsdl:part name="BatchNo" type="s:string" />
+    <wsdl:part name="Stage" type="s:string" />
+    <wsdl:part name="TesterID" type="s:string" />
+    <wsdl:part name="HostName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getQAResultHttpPostOut">
+    <wsdl:part name="Body" element="tns:getQAResults" />
+  </wsdl:message>
+  <wsdl:message name="queryQAMethodsHttpPostIn" />
+  <wsdl:message name="queryQAMethodsHttpPostOut">
+    <wsdl:part name="Body" element="tns:QAMethodProxy" />
+  </wsdl:message>
+  <wsdl:message name="queryQAResultsHttpPostIn" />
+  <wsdl:message name="queryQAResultsHttpPostOut">
+    <wsdl:part name="Body" element="tns:QAResultProxy" />
+  </wsdl:message>
+  <wsdl:message name="queryTesterRaspeListHttpPostIn" />
+  <wsdl:message name="queryTesterRaspeListHttpPostOut">
+    <wsdl:part name="Body" element="tns:TesterRaspeProxy" />
+  </wsdl:message>
+  <wsdl:message name="queryTesterListHttpPostIn">
+    <wsdl:part name="TesterRaspe" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="queryTesterListHttpPostOut">
+    <wsdl:part name="Body" element="tns:TesterProxy" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsHttpPostIn">
+    <wsdl:part name="QAID" type="s:string" />
+    <wsdl:part name="BatchNo" type="s:string" />
+    <wsdl:part name="TypeName" type="s:string" />
+    <wsdl:part name="NCCode" type="s:string" />
+    <wsdl:part name="Diffusion" type="s:string" />
+    <wsdl:part name="Site" type="s:string" />
+    <wsdl:part name="Stage" type="s:string" />
+    <wsdl:part name="TesterRaspe" type="s:string" />
+    <wsdl:part name="Tester" type="s:string" />
+    <wsdl:part name="BL" type="s:string" />
+    <wsdl:part name="DateCode" type="s:string" />
+    <wsdl:part name="OPID" type="s:string" />
+    <wsdl:part name="QAMethod" type="s:string" />
+    <wsdl:part name="QAFlag" type="s:string" />
+    <wsdl:part name="QAResult" type="s:string" />
+    <wsdl:part name="QADone" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsHttpPostOut">
+    <wsdl:part name="Body" element="tns:QARecordProxy" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsDSHttpPostIn">
+    <wsdl:part name="QAID" type="s:string" />
+    <wsdl:part name="BatchNo" type="s:string" />
+    <wsdl:part name="TypeName" type="s:string" />
+    <wsdl:part name="NCCode" type="s:string" />
+    <wsdl:part name="Diffusion" type="s:string" />
+    <wsdl:part name="Site" type="s:string" />
+    <wsdl:part name="Stage" type="s:string" />
+    <wsdl:part name="TesterRaspe" type="s:string" />
+    <wsdl:part name="Tester" type="s:string" />
+    <wsdl:part name="BL" type="s:string" />
+    <wsdl:part name="DateCode" type="s:string" />
+    <wsdl:part name="OPID" type="s:string" />
+    <wsdl:part name="QAMethod" type="s:string" />
+    <wsdl:part name="QAFlag" type="s:string" />
+    <wsdl:part name="QAResult" type="s:string" />
+    <wsdl:part name="QADone" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="queryQARecordsDSHttpPostOut">
+    <wsdl:part name="Body" element="tns:QARecordDSProxy" />
+  </wsdl:message>
+  <wsdl:message name="storeQAResultHttpPostIn">
+    <wsdl:part name="QAID" type="s:string" />
+    <wsdl:part name="QAResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="storeQAResultHttpPostOut">
+    <wsdl:part name="Body" element="tns:updateQAResult" />
+  </wsdl:message>
+  <wsdl:message name="updateQADoneHttpPostIn">
+    <wsdl:part name="QAID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="updateQADoneHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReturnValue" />
+  </wsdl:message>
+  <wsdl:portType name="QASamplingWebServicesSoap">
+    <wsdl:operation name="getQAFlag">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to get QA flag and message.
+input: BatchNo, Site, Stage, TesterID, OPID, LotQty 
+output: QAFlag, QAMethod, QASize, QAMessage</wsdl:documentation>
+      <wsdl:input message="tns:getQAFlagSoapIn" />
+      <wsdl:output message="tns:getQAFlagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getQAResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to get QA result.
+input: BatchNo, Site, Stage, Tester
+output: QA record</wsdl:documentation>
+      <wsdl:input message="tns:getQAResultSoapIn" />
+      <wsdl:output message="tns:getQAResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQAMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA method list.
+input: &lt;none&gt;
+output: QA method list</wsdl:documentation>
+      <wsdl:input message="tns:queryQAMethodsSoapIn" />
+      <wsdl:output message="tns:queryQAMethodsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQAResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA result list.
+input: &lt;none&gt;
+output: QA result list</wsdl:documentation>
+      <wsdl:input message="tns:queryQAResultsSoapIn" />
+      <wsdl:output message="tns:queryQAResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterRaspeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query tester &amp; raspe list.
+input: &lt;none&gt;
+output: Tester/Raspe code list</wsdl:documentation>
+      <wsdl:input message="tns:queryTesterRaspeListSoapIn" />
+      <wsdl:output message="tns:queryTesterRaspeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query tester &amp; raspe list.
+input: &lt;none&gt;
+output: Tester/Raspe code list</wsdl:documentation>
+      <wsdl:input message="tns:queryTesterListSoapIn" />
+      <wsdl:output message="tns:queryTesterListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecords">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA record list.
+input: id, batchno, typename, 12nc, diffusion, site, stage, bl, raspe, datecode, opid, qa_method, qa_flag, qa_result, qa_datetime
+output: QA record list</wsdl:documentation>
+      <wsdl:input message="tns:queryQARecordsSoapIn" />
+      <wsdl:output message="tns:queryQARecordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecordsDS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA record list.
+input: id, batchno, typename, 12nc, diffusion, site, stage, bl, raspe, datecode, opid, qa_method, qa_flag, qa_result, qa_datetime
+output: QA record list</wsdl:documentation>
+      <wsdl:input message="tns:queryQARecordsDSSoapIn" />
+      <wsdl:output message="tns:queryQARecordsDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="storeQAResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to update QA result.
+input: QAID, result 
+output: ReturnValue</wsdl:documentation>
+      <wsdl:input message="tns:storeQAResultSoapIn" />
+      <wsdl:output message="tns:storeQAResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateQADone">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to update QA done.
+input: QAID 
+output: ReturnValue</wsdl:documentation>
+      <wsdl:input message="tns:updateQADoneSoapIn" />
+      <wsdl:output message="tns:updateQADoneSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="QASamplingWebServicesHttpGet">
+    <wsdl:operation name="getQAFlag">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to get QA flag and message.
+input: BatchNo, Site, Stage, TesterID, OPID, LotQty 
+output: QAFlag, QAMethod, QASize, QAMessage</wsdl:documentation>
+      <wsdl:input message="tns:getQAFlagHttpGetIn" />
+      <wsdl:output message="tns:getQAFlagHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getQAResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to get QA result.
+input: BatchNo, Site, Stage, Tester
+output: QA record</wsdl:documentation>
+      <wsdl:input message="tns:getQAResultHttpGetIn" />
+      <wsdl:output message="tns:getQAResultHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQAMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA method list.
+input: &lt;none&gt;
+output: QA method list</wsdl:documentation>
+      <wsdl:input message="tns:queryQAMethodsHttpGetIn" />
+      <wsdl:output message="tns:queryQAMethodsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQAResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA result list.
+input: &lt;none&gt;
+output: QA result list</wsdl:documentation>
+      <wsdl:input message="tns:queryQAResultsHttpGetIn" />
+      <wsdl:output message="tns:queryQAResultsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterRaspeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query tester &amp; raspe list.
+input: &lt;none&gt;
+output: Tester/Raspe code list</wsdl:documentation>
+      <wsdl:input message="tns:queryTesterRaspeListHttpGetIn" />
+      <wsdl:output message="tns:queryTesterRaspeListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query tester &amp; raspe list.
+input: &lt;none&gt;
+output: Tester/Raspe code list</wsdl:documentation>
+      <wsdl:input message="tns:queryTesterListHttpGetIn" />
+      <wsdl:output message="tns:queryTesterListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecords">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA record list.
+input: id, batchno, typename, 12nc, diffusion, site, stage, bl, raspe, datecode, opid, qa_method, qa_flag, qa_result, qa_datetime
+output: QA record list</wsdl:documentation>
+      <wsdl:input message="tns:queryQARecordsHttpGetIn" />
+      <wsdl:output message="tns:queryQARecordsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecordsDS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA record list.
+input: id, batchno, typename, 12nc, diffusion, site, stage, bl, raspe, datecode, opid, qa_method, qa_flag, qa_result, qa_datetime
+output: QA record list</wsdl:documentation>
+      <wsdl:input message="tns:queryQARecordsDSHttpGetIn" />
+      <wsdl:output message="tns:queryQARecordsDSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="storeQAResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to update QA result.
+input: QAID, result 
+output: ReturnValue</wsdl:documentation>
+      <wsdl:input message="tns:storeQAResultHttpGetIn" />
+      <wsdl:output message="tns:storeQAResultHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateQADone">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to update QA done.
+input: QAID 
+output: ReturnValue</wsdl:documentation>
+      <wsdl:input message="tns:updateQADoneHttpGetIn" />
+      <wsdl:output message="tns:updateQADoneHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="QASamplingWebServicesHttpPost">
+    <wsdl:operation name="getQAFlag">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to get QA flag and message.
+input: BatchNo, Site, Stage, TesterID, OPID, LotQty 
+output: QAFlag, QAMethod, QASize, QAMessage</wsdl:documentation>
+      <wsdl:input message="tns:getQAFlagHttpPostIn" />
+      <wsdl:output message="tns:getQAFlagHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getQAResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to get QA result.
+input: BatchNo, Site, Stage, Tester
+output: QA record</wsdl:documentation>
+      <wsdl:input message="tns:getQAResultHttpPostIn" />
+      <wsdl:output message="tns:getQAResultHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQAMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA method list.
+input: &lt;none&gt;
+output: QA method list</wsdl:documentation>
+      <wsdl:input message="tns:queryQAMethodsHttpPostIn" />
+      <wsdl:output message="tns:queryQAMethodsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQAResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA result list.
+input: &lt;none&gt;
+output: QA result list</wsdl:documentation>
+      <wsdl:input message="tns:queryQAResultsHttpPostIn" />
+      <wsdl:output message="tns:queryQAResultsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterRaspeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query tester &amp; raspe list.
+input: &lt;none&gt;
+output: Tester/Raspe code list</wsdl:documentation>
+      <wsdl:input message="tns:queryTesterRaspeListHttpPostIn" />
+      <wsdl:output message="tns:queryTesterRaspeListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query tester &amp; raspe list.
+input: &lt;none&gt;
+output: Tester/Raspe code list</wsdl:documentation>
+      <wsdl:input message="tns:queryTesterListHttpPostIn" />
+      <wsdl:output message="tns:queryTesterListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecords">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA record list.
+input: id, batchno, typename, 12nc, diffusion, site, stage, bl, raspe, datecode, opid, qa_method, qa_flag, qa_result, qa_datetime
+output: QA record list</wsdl:documentation>
+      <wsdl:input message="tns:queryQARecordsHttpPostIn" />
+      <wsdl:output message="tns:queryQARecordsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecordsDS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to query QA record list.
+input: id, batchno, typename, 12nc, diffusion, site, stage, bl, raspe, datecode, opid, qa_method, qa_flag, qa_result, qa_datetime
+output: QA record list</wsdl:documentation>
+      <wsdl:input message="tns:queryQARecordsDSHttpPostIn" />
+      <wsdl:output message="tns:queryQARecordsDSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="storeQAResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to update QA result.
+input: QAID, result 
+output: ReturnValue</wsdl:documentation>
+      <wsdl:input message="tns:storeQAResultHttpPostIn" />
+      <wsdl:output message="tns:storeQAResultHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateQADone">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to update QA done.
+input: QAID 
+output: ReturnValue</wsdl:documentation>
+      <wsdl:input message="tns:updateQADoneHttpPostIn" />
+      <wsdl:output message="tns:updateQADoneHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QASamplingWebServicesSoap" type="tns:QASamplingWebServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getQAFlag">
+      <soap:operation soapAction="http://nxp.com/QASampling/getQAFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQAResult">
+      <soap:operation soapAction="http://nxp.com/QASampling/getQAResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQAMethods">
+      <soap:operation soapAction="http://nxp.com/QASampling/queryQAMethods" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQAResults">
+      <soap:operation soapAction="http://nxp.com/QASampling/queryQAResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterRaspeList">
+      <soap:operation soapAction="http://nxp.com/QASampling/queryTesterRaspeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterList">
+      <soap:operation soapAction="http://nxp.com/QASampling/queryTesterList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecords">
+      <soap:operation soapAction="http://nxp.com/QASampling/queryQARecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecordsDS">
+      <soap:operation soapAction="http://nxp.com/QASampling/queryQARecordsDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="storeQAResult">
+      <soap:operation soapAction="http://nxp.com/QASampling/storeQAResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateQADone">
+      <soap:operation soapAction="http://nxp.com/QASampling/updateQADone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="QASamplingWebServicesSoap12" type="tns:QASamplingWebServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getQAFlag">
+      <soap12:operation soapAction="http://nxp.com/QASampling/getQAFlag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQAResult">
+      <soap12:operation soapAction="http://nxp.com/QASampling/getQAResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQAMethods">
+      <soap12:operation soapAction="http://nxp.com/QASampling/queryQAMethods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQAResults">
+      <soap12:operation soapAction="http://nxp.com/QASampling/queryQAResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterRaspeList">
+      <soap12:operation soapAction="http://nxp.com/QASampling/queryTesterRaspeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterList">
+      <soap12:operation soapAction="http://nxp.com/QASampling/queryTesterList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecords">
+      <soap12:operation soapAction="http://nxp.com/QASampling/queryQARecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecordsDS">
+      <soap12:operation soapAction="http://nxp.com/QASampling/queryQARecordsDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="storeQAResult">
+      <soap12:operation soapAction="http://nxp.com/QASampling/storeQAResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateQADone">
+      <soap12:operation soapAction="http://nxp.com/QASampling/updateQADone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="QASamplingWebServicesHttpGet" type="tns:QASamplingWebServicesHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getQAFlag">
+      <http:operation location="/getQAFlag" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQAResult">
+      <http:operation location="/getQAResult" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQAMethods">
+      <http:operation location="/queryQAMethods" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQAResults">
+      <http:operation location="/queryQAResults" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterRaspeList">
+      <http:operation location="/queryTesterRaspeList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterList">
+      <http:operation location="/queryTesterList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecords">
+      <http:operation location="/queryQARecords" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecordsDS">
+      <http:operation location="/queryQARecordsDS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="storeQAResult">
+      <http:operation location="/storeQAResult" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateQADone">
+      <http:operation location="/updateQADone" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="QASamplingWebServicesHttpPost" type="tns:QASamplingWebServicesHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getQAFlag">
+      <http:operation location="/getQAFlag" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQAResult">
+      <http:operation location="/getQAResult" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQAMethods">
+      <http:operation location="/queryQAMethods" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQAResults">
+      <http:operation location="/queryQAResults" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterRaspeList">
+      <http:operation location="/queryTesterRaspeList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryTesterList">
+      <http:operation location="/queryTesterList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecords">
+      <http:operation location="/queryQARecords" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryQARecordsDS">
+      <http:operation location="/queryQARecordsDS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="storeQAResult">
+      <http:operation location="/storeQAResult" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateQADone">
+      <http:operation location="/updateQADone" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QASamplingWebServices">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">QASamplingWebServices are built for external APs or GUIs to query/insert/update/delete data entries of QASampling DB. Ver. 0.5.2.13020701</wsdl:documentation>
+    <wsdl:port name="QASamplingWebServicesSoap" binding="tns:QASamplingWebServicesSoap">
+      <soap:address location="http://autow2ksvr03/QASamplingWebServices/QASampling.asmx" />
+    </wsdl:port>
+    <wsdl:port name="QASamplingWebServicesSoap12" binding="tns:QASamplingWebServicesSoap12">
+      <soap12:address location="http://autow2ksvr03/QASamplingWebServices/QASampling.asmx" />
+    </wsdl:port>
+    <wsdl:port name="QASamplingWebServicesHttpGet" binding="tns:QASamplingWebServicesHttpGet">
+      <http:address location="http://autow2ksvr03/QASamplingWebServices/QASampling.asmx" />
+    </wsdl:port>
+    <wsdl:port name="QASamplingWebServicesHttpPost" binding="tns:QASamplingWebServicesHttpPost">
+      <http:address location="http://autow2ksvr03/QASamplingWebServices/QASampling.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

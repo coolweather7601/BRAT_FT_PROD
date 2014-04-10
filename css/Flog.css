@@ -1,0 +1,232 @@
+﻿/* BASIC DESIGN */
+body {  
+	font: 9pt/12pt Arial, Helvetica, sans-serif; 
+	color: #010E22; 
+	background: #F5F5E9 url(images/bg.jpg) repeat; 
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	}
+
+p { 
+	font: 9pt/12pt Arial, Helvetica, sans-serif; 
+	margin-top: 0px; 
+	text-align: left;
+	color: #010E22;
+	}
+
+a:link { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #2222FF;
+	}
+a:visited { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #6600FF;
+	}
+a:hover, a:active { 
+	text-decoration: underline; 
+	color: #000044;
+	}
+	
+
+
+/* TITLE DESIGN */
+#container { 
+	text-align: left;
+	position: relative;
+	background: #fff url(images/top_item1.gif) no-repeat top left;
+	margin: 10px auto;
+	border: 10px solid #aaa;
+	padding: 0px;
+	width: 760px; 
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	width: 740px;
+	}
+	html>body #container {
+	width: 740px;
+}
+
+#setContents { 
+	background: url(images/top_monkey1.gif) no-repeat top right;
+	margin: 0px;
+		}
+
+#pageHeader { 
+	padding-top: 65px;
+	margin-left: 230px;
+	}
+
+#pageHeader h1 { 
+	background: transparent url(images/top_title1.gif) no-repeat top left; 
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	width: 370px; 
+	height: 28px;
+	}
+#pageHeader h1 span {
+	display:none
+	}
+#pageHeader h2 { 
+	background: transparent url(images/top_title2.gif) no-repeat top left; 
+	margin-left: 0px;
+	margin-bottom: 91px;
+	margin-top: 0px;
+	width: 260px; 
+	height: 20px; 
+	}
+#pageHeader h2 span {
+	display:none;
+	}
+
+
+
+/* CONTENTS LAYOUT */
+#quickSummary {
+	position: absolute;
+	top: 330px;
+	left: 30px;
+	width: 172px; 
+	}
+
+#quickSummary p {
+	font: 10px/13px Arial, Helvetica, sans-serif; 
+	text-align:left;
+	}
+
+#headerSize {
+	margin: 0px 0px 20px 230px;
+	padding: 0px 10px 20px 10px;
+	width: 450px;
+	border: 1px solid #B2B9C4;
+	background: #F1F2EF url(images/top_monkey2.gif) no-repeat right top;
+	}
+
+
+
+/* LINKS */	
+#setListAll {
+	position: absolute;
+	top: 520px;
+	left: 30px;
+	}
+#setList { 
+	font: 8pt Arial, Helvetica, sans-serif;
+	padding: 0px; 
+	margin-top: 20px; 
+	width: 150px; 
+	}
+
+
+#setListAll h3.archives { 
+	background: url(images/sidetitle_archives.gif) no-repeat top left; 
+	margin: 10px 0px 0px 0px; 
+	width: 120px; 
+	height: 30px;
+	}
+#setListAll h3.archives span {
+	display:none
+	}
+#setListAll h3.resources { 
+	background: url(images/sidetitle_resources.gif) no-repeat top left; 
+	margin: 10px 0px 0px 0px;
+	width: 120px; 
+	height: 30px;
+	}
+#setListAll h3.resources span {
+	display:none;
+	}
+
+
+#setListAll ul {
+	margin: 0px;
+	padding: 0px;
+	}
+#setListAll li {
+	line-height: 1.8ex; 
+	list-style-type: none;
+	padding-top: 5px; 
+	margin-bottom: 5px;
+	}
+
+#setListAll li a:link { 
+	color: #2222FF;
+	font-weight: normal;
+	}
+#setListAll li a:visited {
+	color: #6600FF;
+	font-weight: normal;
+	}
+#setListAll li a:hover, a:active { 
+	text-decoration: underline; 
+	color: #000044;
+	}
+
+
+
+/* FOOTER */
+#footer { 
+	font: 9pt Arial, Helvetica, sans-serif;
+	text-align:center;
+	margin-top: 12px;
+	margin-bottom: 4px;
+	padding-top: 10px;
+	border-top: 1px dotted #666;
+	}	
+address { 
+	font: 8pt Arial, Helvetica, sans-serif;
+	text-align:center;
+	margin-bottom: 20px;
+	}
+
+
+
+/* HEADLINES */
+h3 { 
+	text-align: left;
+	margin-bottom: 0px; 
+	}
+h3 span { 
+	display: none;
+	}
+	
+#headerSize h3 {
+	width: 450px;
+	height: 30px;
+	}
+
+#mainSub1 h3 { 
+	background: url(images/title_hidden.gif) no-repeat top left;
+	margin-top: 10px;
+	margin-bottom: -2px; 
+	}
+
+#mainSub2 h3 { 
+	background: url(images/title_diary.gif) no-repeat top left;
+	margin-top: 16px;
+	}
+#mainSub3 h3 { 
+	background: url(images/title_web.gif) no-repeat top left;
+	margin-top: 16px;
+	}
+#mainSub4 h3 { 
+	background: url(images/title_flatmotion.gif) no-repeat top left;
+	margin-top: 16px;
+	}
+#mainSub5 h3 { 
+	background: url(images/title_frontman.gif) no-repeat top left;
+	margin-top: 16px;
+	}
+
+
+/* IMAGES MARGIN */
+.margintop { 
+	margin-top: -8px;
+	}
+
+#imgweblink { 
+	margin-top: 12px;
+	}

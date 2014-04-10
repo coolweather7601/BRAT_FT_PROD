@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://autow2ksvr03/QASamplingWebServices/QASampling.asmx?wsdl" docRef="http://autow2ksvr03/QASamplingWebServices/QASampling.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://autow2ksvr03/QASamplingWebServices/QASampling.asmx" xmlns:q1="http://nxp.com/QASampling/" binding="q1:QASamplingWebServicesSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://autow2ksvr03/QASamplingWebServices/QASampling.asmx" xmlns:q2="http://nxp.com/QASampling/" binding="q2:QASamplingWebServicesSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://nxp.com/EWFC/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://nxp.com/EWFC/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://nxp.com/EWFC/">
+      <s:element name="getProductDB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tester_supplier" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tester_raspe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code_12nc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sfc_processStep" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sites" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="prober_model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wafer_fab" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wafer_diameter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="diff_proc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="is_str" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="is_wafer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="icft_12nc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProductDBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getProductDBResult" type="tns:ProductDBProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProductDBProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessFlowList" type="tns:ArrayOfProcessFlowProxy" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipeList" type="tns:ArrayOfRecipeProxy" />
+          <s:element minOccurs="0" maxOccurs="1" name="TP_Parameter_Turbo" type="tns:TP_Parameter_TurboProxy" />
+          <s:element minOccurs="0" maxOccurs="1" name="TP_Parameters" type="tns:ArrayOfTP_Parameter" />
+          <s:element minOccurs="0" maxOccurs="1" name="Equipments" type="tns:ArrayOfEquipment" />
+          <s:element minOccurs="0" maxOccurs="1" name="TP_Program_Turbo" type="tns:TPbody_TurboProxy" />
+          <s:element minOccurs="0" maxOccurs="1" name="TesterConfigurationListProxy" type="tns:ArrayOfTesterConfigurationProxy" />
+          <s:element minOccurs="0" maxOccurs="1" name="Diffusion_LotID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DieDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Die2Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DevelopmentCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TesterManufacturer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code_12NC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icft_12NC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Loadboard_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Probecard_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sfc_Stage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Diff_Proc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Wafer_Fab" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Wafer_Size" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Raspe_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tester_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Handler_Raspe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Handler_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Recipe_Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Recipe_SubType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipRecipeID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Site" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stage_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Is_STR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Is_Wafer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comm_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nick_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Test_Stage_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TP_Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdderItems" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Raspe_Ext_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeRequiredTesterRaspeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeRequiredTesterName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STRString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bin_Results" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsAdditionalMemory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsAV8" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsNVM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsGoldenSample" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsPreMerge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChuckMetalCoated" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThinWafer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProcessFlowProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessFlowProxy" nillable="true" type="tns:ProcessFlowProxy" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessFlowProxy">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Process_Text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Process_Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsOnFlow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlreadyProcessed" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRecipeProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RecipeProxy" nillable="true" type="tns:RecipeProxy" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RecipeProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Recipe_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipeType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipeSubType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipeVersion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Priority" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TP_Parameter_TurboProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Comm_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stage_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tester_Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Site" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TP_Owner" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sla_OR_Bl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sotf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LimitFile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tp_Mainprog" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dlog_Qty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dta_File" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tp_Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Die_Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sif" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TpCoworker" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Identify" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTP_Parameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TP_Parameter" nillable="true" type="tns:TP_Parameter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TP_Parameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEquipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Equipment" nillable="true" type="tns:Equipment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Equipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TesterName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Handler" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sites" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProbeCard" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoadBoard" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TPbody_TurboProxy">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SNO" type="s:unsignedInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="TesterType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Suffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sotf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Test_Stage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sif" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Test_Pgm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pgm_Ver" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LimitFile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Package" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Check_Sum" type="s:unsignedInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="BL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fab" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Factory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Employee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Commit_Date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tdpchk" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apk_Sla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tpowner" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TpCoworker" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dlog_Qty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tp_Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dta_File" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tp_Mainprog" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Die_Desc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTesterConfigurationProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TesterConfigurationProxy" nillable="true" type="tns:TesterConfigurationProxy" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TesterConfigurationProxy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BitNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BitDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getRouting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code_12nc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wafer_fab" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wafer_diameter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tester_raspe" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRoutingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRoutingResult" type="tns:ProductDBProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRecipe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recipe_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="recipe_subtype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tester_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ten_stage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="test_stage_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="is_wafer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sites" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRecipeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRecipeResult" type="tns:ProductDBProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNonElectricityRecipes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="transportLotID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currentStage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPreProcess" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNonElectricityRecipesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNonElectricityRecipesResult" type="tns:ProductDBProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProcessRecipes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cept12nc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="process" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProcessRecipesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getProcessRecipesResult" type="tns:ProductDBProxy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductDBProxy" nillable="true" type="tns:ProductDBProxy" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getProductDBSoapIn">
+    <wsdl:part name="parameters" element="tns:getProductDB" />
+  </wsdl:message>
+  <wsdl:message name="getProductDBSoapOut">
+    <wsdl:part name="parameters" element="tns:getProductDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRoutingSoapIn">
+    <wsdl:part name="parameters" element="tns:getRouting" />
+  </wsdl:message>
+  <wsdl:message name="getRoutingSoapOut">
+    <wsdl:part name="parameters" element="tns:getRoutingResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRecipeSoapIn">
+    <wsdl:part name="parameters" element="tns:getRecipe" />
+  </wsdl:message>
+  <wsdl:message name="getRecipeSoapOut">
+    <wsdl:part name="parameters" element="tns:getRecipeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNonElectricityRecipesSoapIn">
+    <wsdl:part name="parameters" element="tns:getNonElectricityRecipes" />
+  </wsdl:message>
+  <wsdl:message name="getNonElectricityRecipesSoapOut">
+    <wsdl:part name="parameters" element="tns:getNonElectricityRecipesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getProcessRecipesSoapIn">
+    <wsdl:part name="parameters" element="tns:getProcessRecipes" />
+  </wsdl:message>
+  <wsdl:message name="getProcessRecipesSoapOut">
+    <wsdl:part name="parameters" element="tns:getProcessRecipesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getProductDBHttpGetIn">
+    <wsdl:part name="tester_supplier" type="s:string" />
+    <wsdl:part name="tester_raspe" type="s:string" />
+    <wsdl:part name="code_12nc" type="s:string" />
+    <wsdl:part name="sfc_processStep" type="s:string" />
+    <wsdl:part name="sites" type="s:string" />
+    <wsdl:part name="prober_model" type="s:string" />
+    <wsdl:part name="wafer_fab" type="s:string" />
+    <wsdl:part name="wafer_diameter" type="s:string" />
+    <wsdl:part name="diff_proc" type="s:string" />
+    <wsdl:part name="is_str" type="s:string" />
+    <wsdl:part name="is_wafer" type="s:string" />
+    <wsdl:part name="icft_12nc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getProductDBHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductDBProxy" />
+  </wsdl:message>
+  <wsdl:message name="getRoutingHttpGetIn">
+    <wsdl:part name="code_12nc" type="s:string" />
+    <wsdl:part name="wafer_fab" type="s:string" />
+    <wsdl:part name="wafer_diameter" type="s:string" />
+    <wsdl:part name="tester_raspe" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRoutingHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductDBProxy" />
+  </wsdl:message>
+  <wsdl:message name="getRecipeHttpGetIn">
+    <wsdl:part name="recipe_type" type="s:string" />
+    <wsdl:part name="recipe_subtype" type="s:string" />
+    <wsdl:part name="tester_name" type="s:string" />
+    <wsdl:part name="ten_stage" type="s:string" />
+    <wsdl:part name="test_stage_id" type="s:string" />
+    <wsdl:part name="is_wafer" type="s:string" />
+    <wsdl:part name="sites" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRecipeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductDBProxy" />
+  </wsdl:message>
+  <wsdl:message name="getNonElectricityRecipesHttpGetIn">
+    <wsdl:part name="transportLotID" type="s:string" />
+    <wsdl:part name="currentStage" type="s:string" />
+    <wsdl:part name="isPreProcess" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getNonElectricityRecipesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductDBProxy" />
+  </wsdl:message>
+  <wsdl:message name="getProcessRecipesHttpGetIn">
+    <wsdl:part name="cept12nc" type="s:string" />
+    <wsdl:part name="stage" type="s:string" />
+    <wsdl:part name="process" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getProcessRecipesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductDBProxy" />
+  </wsdl:message>
+  <wsdl:message name="getProductDBHttpPostIn">
+    <wsdl:part name="tester_supplier" type="s:string" />
+    <wsdl:part name="tester_raspe" type="s:string" />
+    <wsdl:part name="code_12nc" type="s:string" />
+    <wsdl:part name="sfc_processStep" type="s:string" />
+    <wsdl:part name="sites" type="s:string" />
+    <wsdl:part name="prober_model" type="s:string" />
+    <wsdl:part name="wafer_fab" type="s:string" />
+    <wsdl:part name="wafer_diameter" type="s:string" />
+    <wsdl:part name="diff_proc" type="s:string" />
+    <wsdl:part name="is_str" type="s:string" />
+    <wsdl:part name="is_wafer" type="s:string" />
+    <wsdl:part name="icft_12nc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getProductDBHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductDBProxy" />
+  </wsdl:message>
+  <wsdl:message name="getRoutingHttpPostIn">
+    <wsdl:part name="code_12nc" type="s:string" />
+    <wsdl:part name="wafer_fab" type="s:string" />
+    <wsdl:part name="wafer_diameter" type="s:string" />
+    <wsdl:part name="tester_raspe" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRoutingHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductDBProxy" />
+  </wsdl:message>
+  <wsdl:message name="getRecipeHttpPostIn">
+    <wsdl:part name="recipe_type" type="s:string" />
+    <wsdl:part name="recipe_subtype" type="s:string" />
+    <wsdl:part name="tester_name" type="s:string" />
+    <wsdl:part name="ten_stage" type="s:string" />
+    <wsdl:part name="test_stage_id" type="s:string" />
+    <wsdl:part name="is_wafer" type="s:string" />
+    <wsdl:part name="sites" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRecipeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductDBProxy" />
+  </wsdl:message>
+  <wsdl:message name="getNonElectricityRecipesHttpPostIn">
+    <wsdl:part name="transportLotID" type="s:string" />
+    <wsdl:part name="currentStage" type="s:string" />
+    <wsdl:part name="isPreProcess" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getNonElectricityRecipesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductDBProxy" />
+  </wsdl:message>
+  <wsdl:message name="getProcessRecipesHttpPostIn">
+    <wsdl:part name="cept12nc" type="s:string" />
+    <wsdl:part name="stage" type="s:string" />
+    <wsdl:part name="process" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getProcessRecipesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductDBProxy" />
+  </wsdl:message>
+  <wsdl:portType name="ProductDBServiceSoap">
+    <wsdl:operation name="getProductDB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method get Test Program parameters.</wsdl:documentation>
+      <wsdl:input message="tns:getProductDBSoapIn" />
+      <wsdl:output message="tns:getProductDBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRouting">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method get Routing.</wsdl:documentation>
+      <wsdl:input message="tns:getRoutingSoapIn" />
+      <wsdl:output message="tns:getRoutingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecipe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method get Recipe.</wsdl:documentation>
+      <wsdl:input message="tns:getRecipeSoapIn" />
+      <wsdl:output message="tns:getRecipeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNonElectricityRecipes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method can get non-electricity recipes (pre-process or post-process) from TEN, ex: ULPY recipe, Merge recipe, ECA recipe</wsdl:documentation>
+      <wsdl:input message="tns:getNonElectricityRecipesSoapIn" />
+      <wsdl:output message="tns:getNonElectricityRecipesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProcessRecipes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method can get recipes (pre-process or post-process) from TEN2. ex: pre-Merge, ULPY , Merge, ECA recipe</wsdl:documentation>
+      <wsdl:input message="tns:getProcessRecipesSoapIn" />
+      <wsdl:output message="tns:getProcessRecipesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ProductDBServiceHttpGet">
+    <wsdl:operation name="getProductDB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method get Test Program parameters.</wsdl:documentation>
+      <wsdl:input message="tns:getProductDBHttpGetIn" />
+      <wsdl:output message="tns:getProductDBHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRouting">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method get Routing.</wsdl:documentation>
+      <wsdl:input message="tns:getRoutingHttpGetIn" />
+      <wsdl:output message="tns:getRoutingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecipe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method get Recipe.</wsdl:documentation>
+      <wsdl:input message="tns:getRecipeHttpGetIn" />
+      <wsdl:output message="tns:getRecipeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNonElectricityRecipes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method can get non-electricity recipes (pre-process or post-process) from TEN, ex: ULPY recipe, Merge recipe, ECA recipe</wsdl:documentation>
+      <wsdl:input message="tns:getNonElectricityRecipesHttpGetIn" />
+      <wsdl:output message="tns:getNonElectricityRecipesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProcessRecipes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method can get recipes (pre-process or post-process) from TEN2. ex: pre-Merge, ULPY , Merge, ECA recipe</wsdl:documentation>
+      <wsdl:input message="tns:getProcessRecipesHttpGetIn" />
+      <wsdl:output message="tns:getProcessRecipesHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ProductDBServiceHttpPost">
+    <wsdl:operation name="getProductDB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method get Test Program parameters.</wsdl:documentation>
+      <wsdl:input message="tns:getProductDBHttpPostIn" />
+      <wsdl:output message="tns:getProductDBHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRouting">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method get Routing.</wsdl:documentation>
+      <wsdl:input message="tns:getRoutingHttpPostIn" />
+      <wsdl:output message="tns:getRoutingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecipe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method get Recipe.</wsdl:documentation>
+      <wsdl:input message="tns:getRecipeHttpPostIn" />
+      <wsdl:output message="tns:getRecipeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNonElectricityRecipes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method can get non-electricity recipes (pre-process or post-process) from TEN, ex: ULPY recipe, Merge recipe, ECA recipe</wsdl:documentation>
+      <wsdl:input message="tns:getNonElectricityRecipesHttpPostIn" />
+      <wsdl:output message="tns:getNonElectricityRecipesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProcessRecipes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method can get recipes (pre-process or post-process) from TEN2. ex: pre-Merge, ULPY , Merge, ECA recipe</wsdl:documentation>
+      <wsdl:input message="tns:getProcessRecipesHttpPostIn" />
+      <wsdl:output message="tns:getProcessRecipesHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductDBServiceSoap" type="tns:ProductDBServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getProductDB">
+      <soap:operation soapAction="http://nxp.com/EWFC/getProductDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouting">
+      <soap:operation soapAction="http://nxp.com/EWFC/getRouting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecipe">
+      <soap:operation soapAction="http://nxp.com/EWFC/getRecipe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNonElectricityRecipes">
+      <soap:operation soapAction="http://nxp.com/EWFC/getNonElectricityRecipes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessRecipes">
+      <soap:operation soapAction="http://nxp.com/EWFC/getProcessRecipes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductDBServiceSoap12" type="tns:ProductDBServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getProductDB">
+      <soap12:operation soapAction="http://nxp.com/EWFC/getProductDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouting">
+      <soap12:operation soapAction="http://nxp.com/EWFC/getRouting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecipe">
+      <soap12:operation soapAction="http://nxp.com/EWFC/getRecipe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNonElectricityRecipes">
+      <soap12:operation soapAction="http://nxp.com/EWFC/getNonElectricityRecipes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessRecipes">
+      <soap12:operation soapAction="http://nxp.com/EWFC/getProcessRecipes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductDBServiceHttpGet" type="tns:ProductDBServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getProductDB">
+      <http:operation location="/getProductDB" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouting">
+      <http:operation location="/getRouting" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecipe">
+      <http:operation location="/getRecipe" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNonElectricityRecipes">
+      <http:operation location="/getNonElectricityRecipes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessRecipes">
+      <http:operation location="/getProcessRecipes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductDBServiceHttpPost" type="tns:ProductDBServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getProductDB">
+      <http:operation location="/getProductDB" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouting">
+      <http:operation location="/getRouting" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecipe">
+      <http:operation location="/getRecipe" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNonElectricityRecipes">
+      <http:operation location="/getNonElectricityRecipes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessRecipes">
+      <http:operation location="/getProcessRecipes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductDBService">
+    <wsdl:port name="ProductDBServiceSoap" binding="tns:ProductDBServiceSoap">
+      <soap:address location="http://apkbl008/ewfm2/ProductDBService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductDBServiceSoap12" binding="tns:ProductDBServiceSoap12">
+      <soap12:address location="http://apkbl008/ewfm2/ProductDBService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductDBServiceHttpGet" binding="tns:ProductDBServiceHttpGet">
+      <http:address location="http://apkbl008/ewfm2/ProductDBService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductDBServiceHttpPost" binding="tns:ProductDBServiceHttpPost">
+      <http:address location="http://apkbl008/ewfm2/ProductDBService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
